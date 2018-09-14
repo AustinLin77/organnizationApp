@@ -1,0 +1,8 @@
+$backgroud-color:white;
+  body{
+  background: $backgroud-color;
+    a{
+      $link-color:#808080;
+      color:$link-color
+  }
+}
