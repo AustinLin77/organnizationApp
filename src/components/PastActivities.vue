@@ -1,8 +1,8 @@
 <template>
-  <div class="content"  >
+  <div class="content" style="overflow-x: hidden">
     <div v-for="item in data" @click="goPastActivityDetails(item.acId,item.status)">
       <div class="myDiv" >
-        <img src="../assets/icon512.png" class="myPic">
+        <img src="../assets/dog.png" class="myPic">
         <div class="myRightDiv">
           <div class="firstDiv">
             <span style="flex: 1;font-size: 15px;font-weight: bold">{{item.acName}}</span>
@@ -11,9 +11,9 @@
             </div>
           </div>
           <div class="introduce">
-            <div style="width: 100%;height: 20px;line-height: 20px;display: flex;align-items: center">
-              <mu-icon value="query_builder" :size="17"></mu-icon>
-              <div style="font-size: 12px;margin-left: 5px;color: darkgrey"><span>{{item.hostStartStr.substr(0,17)}}</span><span>--</span><span>{{item.hostEndStr.substr(0,17)}}</span></div>
+            <div style="width: 100%;height: 20px;line-height: 20px;display: flex;align-items: center;">
+              <mu-icon value="query_builder" :size="17" style="width: 17px"></mu-icon>
+              <div style="font-size: 12px;margin-left: 5px; flex:1; color: darkgrey;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"><span>{{item.hostStartStr.substr(0,17)}}</span><span>--</span><span>{{item.hostEndStr.substr(0,17)}}</span></div>
             </div>
             <div style="width: 100%;height: 20px;line-height: 20px;display: flex;align-items: center;margin-top: 5px">
               <mu-icon value="room" :size="17"></mu-icon>
@@ -155,9 +155,9 @@
 
   }
   .myDiv{
+    box-sizing: border-box;
     width: 100%;
-    padding: 10px;
-    height: 110px;
+    padding: 15px 10px 15px 10px;
     display: flex;
     align-items: center;
 
@@ -166,20 +166,23 @@
     height:90px;
     width: 90px;
     justify-content: flex-start;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
   }
   .myRightDiv{
     flex:1;
-    height: 100px;
-    padding-left: 5px;
+    min-width: 0;
+
+    padding-left: 10px;
   }
   .firstDiv{
-    width: 100%;
+
     height: 27px;
     display: flex;
   }
   .introduce{
-    width: 100%;
-    height: 73px;
+
+    /*height: 73px;*/
     overflow: hidden;
     text-overflow: ellipsis;
     word-wrap:break-word;

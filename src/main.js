@@ -17,8 +17,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
 Vue.prototype.emoji = emoji;
-// Vue.prototype.path = "http://appinter.sunwoda.com/common/community/";
-Vue.prototype.path='http://172.30.128.32:8081/swdAPP/common/community/'
+Vue.prototype.path = "http://appinter.sunwoda.com/common/community/";
+// Vue.prototype.path='http://172.30.128.32:8085/swdAPP/common/community/'
 
 Vue.use(museUI);
 Vue.use(elementUI);

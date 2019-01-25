@@ -1,5 +1,5 @@
 <template>
-    <div style="overflow-y: hidden">
+    <div style="overflow-y: hidden;height: 100%">
       <!--<div class="head">-->
         <!--&lt;!&ndash;<form class="form">&ndash;&gt;-->
           <!--&lt;!&ndash;<input   type="search"  placeholder="输入关键字查询社团活动" class="input" >&ndash;&gt;-->

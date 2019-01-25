@@ -1,10 +1,10 @@
 <template>
   <div style="overflow: hidden">
     <div class="content">
-      <div class="myBigPic">
-        <el-carousel height="180px">
-          <el-carousel-item v-for="(item,index) in picData" :key="index" style="width: 100%;height: 180px">
-            <img :src="item"  @click="clickImg($event)">
+      <div class="myBigPic" >
+        <el-carousel id="myCar">
+          <el-carousel-item v-for="(item,index) in picData" :key="index" style="width: 100%;">
+            <img :src="item"  @click="clickImg($event)"  style="width: 100%;height: auto"  id="myImg"  @load="imageLoaded">
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -66,14 +66,16 @@
 
 <script>
   import BigImg from './BigImg'
-  import  img1 from  "@/assets/baidu.jpg"
-  import  img2 from  "@/assets/timr.jpg"
-  import  img3 from  "@/assets/timw.jpg"
+  import  img1 from  "@/assets/slidesOne.png"
+  import  img2 from  "@/assets/slidesTwo.png"
+  import  img3 from  "@/assets/slidesThree.png"
     export default {
         data: function () {
             return {
               user:[],
-              picData:[img1,img2,img3],
+              picData:["https://fdfs.sunwoda.com/group1/M00/00/04/rB4HE1vi4fCAeh9pAAGOtaFENw4166.png",
+                "https://fdfs.sunwoda.com/group1/M00/00/06/rB4HFFvi4gyAAjlKAAEG0Y8-eyo941.png",
+                "https://fdfs.sunwoda.com/group1/M00/00/04/rB4HE1vi4hyATIPnAAEPVdSMTJk065.png"],
               acId:'',
               data:[],
               showImg: false,
@@ -118,6 +120,10 @@
           this.getUser()
         },
         methods: {
+          imageLoaded(){
+            var x=document.getElementById("myImg").clientHeight
+            document.getElementById("myCar").style.height=127+'px'
+          },
           getUser(){
             let vm=this;
             $.ajax({
@@ -170,7 +176,6 @@
                       }
                     }
                   }
-
                 });
                 console.log(vm.data);
               },
@@ -216,7 +221,7 @@
   }
   .myBigPic{
     width: 100%;
-    height: 180px;
+
     background-color: darkgrey;
   }
   .details{

@@ -9,8 +9,8 @@
     <div class="content"  >
       <div v-for="item in data" @click="goActivityDetails(item.acId,item.status)">
         <div class="myDiv" >
-          <img src="../assets/icon512.png" class="myPic">
-          <div class="myRightDiv">
+          <img src="../assets/act.png" class="myPic">
+          <div class="myRightDiv" style="min-width: 0">
             <div class="firstDiv">
               <span style="flex: 1;font-size: 15px;font-weight: bold">{{item.acName}}</span>
               <div style="padding-left: 3px;padding-right: 3px;height: 20px;color: white;line-height: 20px;margin-top: 2px" :class="{ 'notSign':item.notSign,'signing':item.signing,'notStart':item.notStart,'during':item.during,'ending':item.ending }">
@@ -20,7 +20,7 @@
             <div class="introduce">
               <div style="width: 100%;height: 20px;line-height: 20px;display: flex;align-items: center">
                 <mu-icon value="query_builder":size="17"></mu-icon>
-                <div style="font-size: 12px;margin-left: 5px;color: darkgrey"><span>{{item.hostStartStr.substr(0,17)}}</span><span>--</span><span>{{item.hostEndStr.substr(0,17)}}</span></div>
+                <div style="font-size: 12px;margin-left: 5px;color: darkgrey;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"><span>{{item.hostStartStr.substr(0,17)}}</span><span>--</span><span>{{item.hostEndStr.substr(0,17)}}</span></div>
               </div>
               <div style="width: 100%;height: 20px;line-height: 20px;display: flex;align-items: center;margin-top: 5px">
                 <mu-icon value="room" :size="17"></mu-icon>
@@ -191,17 +191,18 @@
     height: 32px;
     padding-left: 10px;
     border: 1px solid #DBDBDB;
-    border-radius: 3px;
+    border-radius: 15px;
     outline: none;
     background: #eeeeee;
     color: dimgrey;
+    text-indent: 15px;
   }
   .search{
     font-size: 25px;
     position: absolute;
     color:#cccccc;
-    top: 14px;
-    right:22px;
+    top: 12px;
+    right:25px;
   }
   .content{
     overflow: scroll;
@@ -219,17 +220,20 @@
     height: 110px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #eeeeee;
 
   }
   .myPic{
     height:90px;
     width: 90px;
     justify-content: flex-start;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
   }
   .myRightDiv{
     flex:1;
     height: 100px;
-    padding-left: 5px;
+    padding-left: 10px;
   }
   .firstDiv{
     width: 100%;

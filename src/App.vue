@@ -3,8 +3,27 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+  import { mapMutations } from 'vuex'
 export default {
-  name: 'App'
+  name: 'App',
+  watch: {
+    $route: {
+      handler: function (val, oldVal) {
+        console.log(val);
+        if (val.name == 'index') {
+           this.storeSelectRootIndex("index")
+           console.log("indexaaaaaaaaaaaaaaaaa")
+        }
+
+      },
+    }
+  },
+  methods:{
+    ...mapMutations([
+      'storeSelectRootIndex'
+    ]),
+  }
 }
 </script>
 

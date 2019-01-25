@@ -1,13 +1,13 @@
 <template>
-    <div id="apply" style="position: absolute;top: 50px;height: 90%;overflow: scroll;width: 100%"><div style="height: 60px;margin: 10px;display: flex;border-bottom: solid 1px #eeeeee;margin-left: 15px" v-for="item in data" @click="goUserProfile(item.cmUser.cUserNo,item.aId)">
+    <div id="apply" style="position: absolute;top: 50px;height: 90%;overflow: scroll;width: 100%"><div style="height: 70px;margin: 10px;display: flex;border-bottom: solid 1px #eeeeee;margin-left: 15px" v-for="item in data" @click="goUserProfile(item.cmUser.cUserNo,item.aId)">
         <div style="height: 60px; flex: 1" >
           <div style="width: 100%;height: 30px;line-height: 30px;font-weight: bold;font-size: 16px">
             {{item.cmUser.cName}}
           </div>
-          <div style="height: 30px;line-height: 30px;font-size: 14px;color: #666666">
+          <div style="height: 30px;line-height: 30px;font-size: 4vw;color: #666666">
             {{item.cmUser.cUserNo}}
-            <span style="margin-left: 10px;font-size: 14px;color:#666666">{{item.cmUser.dept}}</span>
-            <span style="margin-left: 10px;font-size: 14px;color: #666666">{{item.cmUser.telPhone}}</span>
+            <span style="margin-left: 10px;font-size: 4vw;color:#666666">{{item.cmUser.dept}}</span>
+            <span style="margin-left: 10px;font-size: 4vw;color: #666666">{{item.cmUser.telPhone}}</span>
           </div>
         </div>
         <div style="width: 50px;height:60px;display: flex;align-items: center;justify-content: center;color: red">

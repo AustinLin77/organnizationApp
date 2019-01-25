@@ -6,12 +6,12 @@
         <mu-icon value="search" class="search"></mu-icon>
       </form>
     </div>
-    <div style="width: 100%;height:180px;display: flex;flex-wrap: wrap">
+    <div style="width: 100%;height:180px;display: flex;flex-wrap: wrap;border-bottom: 8px solid #eeeeee">
       <div style="height: 90px;width: 25%;padding: 10px" v-for="item in data" @click="organizationDetails(item.cId,item.cName)">
         <div style="display: flex;align-items: center;justify-content: center">
           <img :src="'http://appinter.sunwoda.com'+item.cmFile.fUrl" style="width: 30px;height: 30px">
         </div>
-        <p style="text-align: center">{{item.cName}}</p>
+        <p style="text-align: center;text-overflow: ellipsis;overflow: hidden;white-space: nowrap">{{item.cName}}</p>
 
       </div>
       <div style="height: 90px;width: 25%;padding: 10px"  @click="allOrganizations" v-show="flag">
@@ -23,8 +23,11 @@
     </div>
     <div class="loop">
       <div class="loopHead" >
-        <div class="loopHeadP">最新活动</div>
-        <div class="loopHeadM" @click="goAllActivies">查看全部></div>
+        <div class="loopHeadP">
+          <img src="../assets/line.png" class="myLine">
+          最新活动
+        </div>
+        <div class="loopHeadM" @click="goAllActivies">查看全部 ></div>
       </div>
       <div v-for="item in activityData" @click="goActivityDetails(item.acId,item.status)">
         <div class="myDiv" >
@@ -57,15 +60,18 @@
     </div>
     <div class="loop">
       <div class="loopHead" >
-        <div class="loopHeadP">活动剪影</div>
-        <div class="loopHeadM" >查看全部></div>
+        <div class="loopHeadP">
+          <img src="../assets/line.png" class="myLine">
+          活动剪影
+        </div>
+        <div class="loopHeadM" >查看全部 ></div>
       </div>
-      <div style="width: 100%;height: 30px;font-weight: bold;font-size: 13px;display: flex;align-items: center;padding-left: 15px">[瑜伽社]五月第二周活动</div>
+      <div style="width: 100%;height: 30px;font-weight: bold;font-size: 14px;display: flex;align-items: center;padding-left: 15px">[瑜伽社]五月第二周活动</div>
       <div style="width: 100%;height: 20px;font-size: 13px;display: flex;align-items: center;padding-left: 15px;color: darkgrey">好多美女哦，大家多多参与</div>
       <div style="width: 100%;height:80px;display: flex;flex-wrap: nowrap;overflow: scroll">
         <div style="height: 80px;width: 90px;padding: 10px" v-for="i in 8" >
           <div style="display: flex;align-items: center;justify-content: center">
-            <img src='../assets/logo.png' style="width: 60px;height: 60px">
+            <img src='../assets/dog.png' style="width: 60px;height: 60px;border: 1px solid #eeeeee;border-radius: 3px">
           </div>
         </div>
 
@@ -73,34 +79,43 @@
     </div>
     <div class="loop" style="border: none">
       <div class="loopHead" >
-        <div class="loopHeadP">最新留言</div>
-        <div class="loopHeadM" @click="goAllMessage">查看全部></div>
-      </div>
-      <div v-for="item in myData" @click="goMessageDetails(item.messageId)" style="padding:5px;border-bottom: solid 1px #eeeeee;">
-        <div class="title">{{item.mTitle}}</div>
-        <div class="details">{{item.message}}</div>
-        <div class="picGroup" v-if="item.photoIds!=null">
-          <img src="../assets/logo.png" class="myImg">
-          <img src="../assets/logo.png" class="myImg">
+        <div class="loopHeadP">
+          <img src="../assets/line.png" class="myLine">
+          最新留言
         </div>
-        <div class="owner">
-          <span class="name">{{item.userName}}</span>
-          <div class="con">
-            <div class="innerCon">
-              <mu-icon value="visibility" class="bottomCon"></mu-icon>
-              <span style="font-size: 12px">{{item.browsing}}</span>
-            </div>
-            <div class="innerCon">
-              <mu-icon value="feedback" class="bottomCon"></mu-icon>
-              <span style="font-size: 12px">{{item.pCount}}</span>
-            </div>
-            <div class="innerCon">
-              <mu-icon value="thumb_up" class="bottomCon"></mu-icon>
-              <span style="font-size: 12px">{{item.total}}</span>
+        <div class="loopHeadM" @click="goAllMessage">查看全部 ></div>
+      </div>
+      <div v-for="item in myData" style="display: flex">
+        <div style="padding:10px 5px 10px 10px;width: 50px">
+          <img src="../assets/personIcon.png" style="border-radius: 50%;width: 30px;height: 30px;border: 1px solid #cccccc;">
+        </div>
+        <div  @click="goMessageDetails(item.messageId)" style="padding:5px;border-bottom: solid 1px #eeeeee;flex: 1;">
+          <div class="title">{{item.mTitle}}</div>
+          <div class="details">{{item.message}}</div>
+          <div class="picGroup" v-if="item.photoIds!=null">
+            <img src="../assets/logo.png" class="myImg">
+            <img src="../assets/logo.png" class="myImg">
+          </div>
+          <div class="owner">
+            <span class="name">{{item.userName}}</span>
+            <div class="con">
+              <div class="innerCon">
+                <mu-icon value="visibility" class="bottomCon"></mu-icon>
+                <span style="font-size: 12px">{{item.browsing}}</span>
+              </div>
+              <div class="innerCon">
+                <mu-icon value="feedback" class="bottomCon"></mu-icon>
+                <span style="font-size: 12px">{{item.pCount}}</span>
+              </div>
+              <div class="innerCon">
+                <mu-icon value="thumb_up" class="bottomCon"></mu-icon>
+                <span style="font-size: 12px">{{item.total}}</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
 
   </div>
@@ -350,17 +365,18 @@
     height: 32px;
     padding-left: 10px;
     border: 1px solid #DBDBDB;
-    border-radius: 3px;
+    border-radius: 15px;
     outline: none;
     background: #eeeeee;
     color: dimgrey;
+    text-indent: 15px;
   }
   .search{
     font-size: 25px;
     position: absolute;
     color:#cccccc;
-    top: 14px;
-    right:22px;
+    top: 12px;
+    right:25px;
   }
   .loop{
     margin-top: 0;
@@ -369,7 +385,7 @@
   }
   .loopHead{
     background-color: white;
-    height: 30px;
+    height: 40px;
     display: flex;
 
   }
@@ -380,7 +396,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 10px;
+    padding-left: 20px;
     color: deepskyblue;
   }
   .loopHeadM{
@@ -390,7 +406,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 5px
+    color: #888;
+    padding-right: 15px
   }
   .myDiv{
     width: 100%;
@@ -401,14 +418,16 @@
 
   }
   .myPic{
-    height:100px;
-    width: 100px;
+    border-radius: 5px;
+    border: 1px solid #eeeeee;
+    height:90px;
+    width: 90px;
     justify-content: flex-start;
   }
   .myRightDiv{
     flex:1;
     height: 100px;
-    padding-left: 5px;
+    padding-left: 15px;
   }
   .firstDiv{
     width: 100%;
@@ -425,7 +444,6 @@
   }
   .title{
     width: 100%;
-    padding-left: 15px;
     height:30px;
     line-height: 30px;
     font-weight: bold;
@@ -443,6 +461,7 @@
     text-overflow: ellipsis;
     font-size: 13px;
     color: darkgrey;
+    text-indent: 15px;
   }
   .picGroup{
     width: 100%;
@@ -462,7 +481,6 @@
   .owner{
     display: flex;
     width: 100%;
-    padding-left: 15px;
     padding-right: 10px;
     height: 30px;
     align-items: center;
@@ -473,6 +491,10 @@
     width:120px;
     height: 30px;
     line-height: 30px;
+  }
+  .myLine{
+    margin-right: 10px;
+    height: 20px;
   }
   .con{
     flex:1;
@@ -488,6 +510,7 @@
   }
   .bottomCon{
     font-size: 18px;
+    color: #333333;
   }
   .notSign{
     background-color: dimgrey;

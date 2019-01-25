@@ -16,9 +16,9 @@
           </div>
         </mu-list>
       </div>
-      <div style="position: fixed;bottom: 0;width: 100%;height: 40px">
-        <mu-pagination  :total="100" :current.sync="current" :page-count=count @change="changeNum" ></mu-pagination>
-      </div>
+      <!--<div style="position: fixed;bottom: 0;width: 100%;height: 40px">-->
+        <!--<mu-pagination  :total="100" :current.sync="current" :page-count=count @change="changeNum" ></mu-pagination>-->
+      <!--</div>-->
       <!--<mu-button fab color="blue" style="position: fixed;bottom: 120px;right: 20px" @click="goToApply" >-->
         <!--<mu-icon value="add" ></mu-icon>-->
       <!--</mu-button>-->
@@ -56,9 +56,9 @@
             url: vm.path+'findUserJobByCId.json',
             dataType: "json",
             data: {
-              'pageSize':10,
+              'pageSize':-1,
               'cId':vm.id,
-              'page':1,
+//              'page':1,
               'pId':6
             },
             type: "post",

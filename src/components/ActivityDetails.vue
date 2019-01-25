@@ -2,14 +2,14 @@
   <div style="overflow: hidden">
     <div class="content">
       <div class="myBigPic">
-        <el-carousel style="width: 100%;height: 180px">
-          <el-carousel-item v-for="(item,index) in picData" :key="index" style="width: 100%;height: 180px">
-            <img :src="item"  @click="clickImg($event)">
+        <el-carousel style="width: 100%;" id="myCar">
+          <el-carousel-item v-for="(item,index) in picData" :key="index" style="width: 100%;">
+            <img :src="item"  @click="clickImg($event)" style="width: 100%;height: auto"  id="myImg"  @load="imageLoaded">
           </el-carousel-item>
         </el-carousel>
       </div>
       <div class="details">
-        <div class="myRightDiv">
+        <div class="myRightDiv" @click="checkaaa">
           <div class="firstDiv">
             <span style="flex: 1;font-size: 15px;font-weight: bold">{{data.acName}}</span>
             <div style="padding-left: 3px;padding-right: 3px;height: 20px;color: white;line-height: 20px;" :class="{ notSign: notSign,signing:signing,notStart:notStart,during:during,end:end }">
@@ -55,13 +55,19 @@
 
 <script>
   import BigImg from './BigImg'
-  import  img1 from  "@/assets/baidu.jpg"
-  import  img2 from  "@/assets/timr.jpg"
-  import  img3 from  "@/assets/timw.jpg"
-    export default {
+  import  img1 from  "@/assets/slidesOne.png"
+  import  img2 from  "@/assets/slidesTwo.png"
+  import  img3 from  "@/assets/slidesThree.png"
+
+
+
+
+  export default {
       data: function () {
         return {
-          picData:[img1,img2,img3],
+          picData:["https://fdfs.sunwoda.com/group1/M00/00/04/rB4HE1vi4fCAeh9pAAGOtaFENw4166.png",
+            "https://fdfs.sunwoda.com/group1/M00/00/06/rB4HFFvi4gyAAjlKAAEG0Y8-eyo941.png",
+            "https://fdfs.sunwoda.com/group1/M00/00/04/rB4HE1vi4hyATIPnAAEPVdSMTJk065.png"],
           acId:'',
           data:[],
           showImg: false,
@@ -71,7 +77,9 @@
           signing:false,
           notStart:false,
           during:false,
-          end:false
+          end:false,
+          myImg:[{src:"http://www.86y.org/images/loading.gif"}]
+
         }
       },
       components: {
@@ -81,7 +89,28 @@
 
       },
       mounted(){
+
+//        var flag=0;
+//        var img=[]
+//        for(var i = 0 ; i < this.picData.length ; i++){
+//          img[i] = new Image()
+//          img[i].src = this.picData[i];
+//          img[i].onload = function(){
+//            //第i张图片加载完成
+//            flag++
+//            console.log(flag)
+//            if( flag == 3){
+//              console.log(img);
+//              this.myImg=[]
+//              this.myImg=img
+//
+//            }
+//          }
+//        }
+//        console.log(this.myImg);
+
         const vm=this;
+
         vm.acId=vm.$route.params.id;
         vm.status=vm.$route.params.status;
         console.log(vm.status)
@@ -102,9 +131,14 @@
             vm.end=true;
             break;
         }
-        this.getData()
+        this.getData();
+
       },
       methods:{
+        imageLoaded(){
+         var x=document.getElementById("myImg").clientHeight
+          document.getElementById("myCar").style.height=127+'px'
+        },
         signOn(){
           let vm=this;
           $.ajax({
@@ -167,6 +201,9 @@
             }
           });
         },
+        checkaaa(){
+          console.log(this.myImg)
+        }
       }
     }
 </script>
@@ -205,7 +242,7 @@
   }
   .myBigPic{
     width: 100%;
-    height: 180px;
+
     background-color: darkgrey;
   }
   .details{
@@ -217,6 +254,7 @@
     flex:1;
     height: 120px;
     padding: 10px;
+    padding-left: 15px;
   }
   .firstDiv{
     width: 100%;

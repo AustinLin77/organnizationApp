@@ -9,29 +9,35 @@
       </div>
 
     </div>
-    <div class="content"  >
+    <div style="height: 5px;background-color: #eeeeee;position: absolute;top: 60px;width:100%;"></div>
+    <div class="content" style="width: 100%" >
       <div v-for="item in myData" @click="goMessageDetails(item.messageId)" style="padding:5px;
-    border-bottom: solid 5px #eeeeee;">
-        <div class="title">{{item.mTitle}}</div>
-        <div class="details">{{item.message}}</div>
-        <div class="picGroup" v-if="item.photoIds!=null">
-          <img src="../assets/logo.png" class="myImg">
-          <img src="../assets/logo.png" class="myImg">
+    border-bottom: solid 5px #eeeeee;display: flex">
+        <div style="padding:5px 5px 10px 10px;width: 50px">
+          <img src="../assets/personIcon.png" style="border-radius: 50%;width: 30px;height: 30px;border: 1px solid #cccccc;">
         </div>
-        <div class="owner">
-          <span class="name">{{item.userName}}</span>
-          <div class="con">
-            <div class="innerCon">
-              <mu-icon value="visibility" class="bottomCon"></mu-icon>
-              <span style="font-size: 12px">{{item.browsing}}</span>
-            </div>
-            <div class="innerCon">
-              <mu-icon value="feedback" class="bottomCon"></mu-icon>
-              <span style="font-size: 12px">{{item.pCount}}</span>
-            </div>
-            <div class="innerCon">
-              <mu-icon value="thumb_up" class="bottomCon"></mu-icon>
-              <span style="font-size: 12px">{{item.total}}</span>
+        <div style="flex: 1;min-width: 0">
+          <div class="title">{{item.mTitle}}</div>
+          <div class="details">{{item.message}}</div>
+          <div class="picGroup" v-if="item.photoIds!=null">
+            <img src="../assets/logo.png" class="myImg">
+            <img src="../assets/logo.png" class="myImg">
+          </div>
+          <div class="owner">
+            <span class="name">{{item.userName}}</span>
+            <div class="con">
+              <div class="innerCon">
+                <mu-icon value="visibility" class="bottomCon"></mu-icon>
+                <span style="font-size: 12px">{{item.browsing}}</span>
+              </div>
+              <div class="innerCon">
+                <mu-icon value="feedback" class="bottomCon"></mu-icon>
+                <span style="font-size: 12px">{{item.pCount}}</span>
+              </div>
+              <div class="innerCon">
+                <mu-icon value="thumb_up" class="bottomCon"></mu-icon>
+                <span style="font-size: 12px">{{item.total}}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -146,7 +152,7 @@
 <style scoped>
   .head{
     /*background-color:white;*/
-    height: 50px;
+    height: 60px;
 
     width: 100%;
     position: absolute;
@@ -162,34 +168,34 @@
   }
   .input{
     width: 95%;
-    height: 32px;
+    height: 36px;
     padding-left: 10px;
     border: 1px solid #DBDBDB;
-    border-radius: 5px;
+    border-radius: 15px;
     outline: none;
     background: #eeeeee;
+    text-indent: 15px;
     color: dimgrey;
   }
   .search{
     font-size: 25px;
     position: absolute;
     color:#cccccc;
-    top: 14px;
-    right:22px;
+    top: 18px;
+    right:28px;
   }
   .content{
     overflow: scroll;
     position: absolute;
-    top:50px;
+    top:65px;
     left:0;
     bottom:45px;
     min-height: 80px;
-    width: 100%;
+
 
   }
   .title{
     width: 100%;
-    padding-left: 15px;
     height:30px;
     line-height: 30px;
     font-weight: bold;
@@ -198,7 +204,6 @@
   }
   .details{
     width: 100%;
-    padding-left: 15px;
     padding-right: 15px;
     height:30px;
     font-family: 宋体;
@@ -226,7 +231,6 @@
   .owner{
     display: flex;
     width: 100%;
-    padding-left: 15px;
     padding-right: 10px;
     height: 30px;
     align-items: center;

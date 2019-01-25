@@ -74,8 +74,8 @@ export default {
 
   mounted(){
     let vm=this;
+    console.log(this.shift1)
     this.getPower()
-    console.log("++++++++++++++++++");
     this.shift = vm.$route.name;
     console.log(this.shift)
   }

@@ -143,7 +143,7 @@
            @touchend='touchEnd($event,i)'
            >
         <slot >
-          <div style="width: 100%;height: 50px; display: flex;font-size: 14px;padding: 15px;align-items: center">
+          <div style="width: 100%;height: 50px; display: flex;font-size: 14px;padding: 15px;align-items: center;;">
             <span style="flex: 1;display: flex;justify-content: flex-start;font-size: 15px">{{item.cName}}</span><span style="flex: 1;display: flex;justify-content: flex-end;font-size: 15px">{{item.jName}}</span>
           </div>
           <mu-divider style="margin-left: 8px;margin-right: 8px"></mu-divider>
